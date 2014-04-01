@@ -101,7 +101,7 @@ h1.title {
 
 .logo-container {
   background: url("../img/LiveRamp_Transparent.png");
-  width: 100%;
+  background-size: contain;
   height: 140px;
   background-repeat: no-repeat;
 }

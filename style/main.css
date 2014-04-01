@@ -56,11 +56,9 @@ h1.title {
   margin-right: 68px;
   float: right; }
 
-.logo-container {
-  background: url("../img/LiveRamp_Transparent.png");
-  background-size: contain;
-  height: 140px;
-  background-repeat: no-repeat; }
+img.fluid-logo {
+  max-width: 100%;
+  height: auto; }
 
 @-webkit-keyframes move-up {
   0% {
@@ -757,7 +755,6 @@ hr {
     margin-bottom: 10px; }
 
   .game-intro {
-    width: 55%;
     display: block;
     box-sizing: border-box;
     line-height: 1.65; }

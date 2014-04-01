@@ -99,11 +99,9 @@ h1.title {
   float: right;
 }
 
-.logo-container {
-  background: url("../img/LiveRamp_Transparent.png");
-  background-size: contain;
-  height: 140px;
-  background-repeat: no-repeat;
+img.fluid-logo {
+  max-width: 100%;
+  height: auto;
 }
 
 @include keyframes(move-up) {
@@ -605,7 +603,6 @@ hr {
 
   // Show intro and restart button side by side
   .game-intro {
-    width: 55%;
     display: block;
     box-sizing: border-box;
     line-height: 1.65;

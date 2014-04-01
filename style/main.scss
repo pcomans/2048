@@ -9,15 +9,15 @@ $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
 
-$text-color: #776E65;
-$bright-text-color: #f9f6f2;
+$text-color: #0d0d0d;
+$bright-text-color: #ffffff;
 
-$tile-color: #eee4da;
+$tile-color: #ffffff;
 $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
 $game-container-margin-top: 40px;
-$game-container-background: #bbada0;
+$game-container-background: #999999;
 
 $transition-speed: 100ms;
 
@@ -25,7 +25,7 @@ html, body {
   margin: 0;
   padding: 0;
 
-  background: #faf8ef;
+  background: url("../img/white-wall-shadow.jpg");
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
@@ -90,11 +90,20 @@ input {
 }
 
 h1.title {
-  font-size: 80px;
+  font-size: 64px;
   font-weight: bold;
   margin: 0;
   display: block;
   float: left;
+  margin-right: 68px;
+  float: right;
+}
+
+.logo-container {
+  background: url("../img/LiveRamp_Transparent.png");
+  width: 100%;
+  height: 140px;
+  background-repeat: no-repeat;
 }
 
 @include keyframes(move-up) {
@@ -407,6 +416,11 @@ hr {
     font-size: 55px;
   }
 
+  .text-container {
+    text-align: right;
+    padding-top: 25%;
+  }
+
   // Movement transition
   @include transition($transition-speed ease-in-out);
   -webkit-transition-property: -webkit-transform;
@@ -436,32 +450,14 @@ hr {
 
     &.tile-#{$power} .tile-inner {
       // Calculate base background color
-      $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
-      $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
+      background: -moz-linear-gradient(-45deg, rgba(240,181,67,0) 49%, rgba(240,181,67,1) 50%, rgba(235,150,64,1) 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, right bottom, color-stop(49%,rgba(240,181,67,0)), color-stop(50%,rgba(240,181,67,1)), color-stop(100%,rgba(235,150,64,1))); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(-45deg, rgba(240,181,67,0) 49%,rgba(240,181,67,1) 50%,rgba(235,150,64,1) 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(-45deg, rgba(240,181,67,0) 49%,rgba(240,181,67,1) 50%,rgba(235,150,64,1) 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(-45deg, rgba(240,181,67,0) 49%,rgba(240,181,67,1) 50%,rgba(235,150,64,1) 100%); /* IE10+ */
+      background: linear-gradient(135deg, rgba(240,181,67,0) 49%,rgba(240,181,67,1) 50%,rgba(235,150,64,1) 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f0b543', endColorstr='#eb9640',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
-      $nth-color: nth($special-colors, $exponent);
-
-      $special-background: nth($nth-color, 1);
-      $bright-color: nth($nth-color, 2);
-
-      @if $special-background {
-        $mixed-background: mix($special-background, $mixed-background, 55%);
-      }
-
-      @if $bright-color {
-        color: $bright-text-color;
-      }
-
-      // Set background
-      background: $mixed-background;
-
-      // Add glow
-      $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
-
-      @if not $special-background {
-        box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
-                    inset 0 0 0 1px rgba(white, $glow-opacity / 3);
-      }
 
       // Adjust font size for bigger numbers
       @if $power >= 100 and $power < 1000 {
@@ -548,6 +544,11 @@ hr {
   display: block;
   text-align: center;
   float: right;
+  height: 25px;
+  line-height: 30px;
+  margin-left: 5px;
+  padding: 15px 25px;
+  margin-top: 8px;
 }
 
 .game-explanation {
